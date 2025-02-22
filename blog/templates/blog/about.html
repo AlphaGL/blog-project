@@ -1,0 +1,72 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}About Us - Resume{% endblock %}
+
+{% block content %}
+<style>
+    body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding-top: 60px;
+}
+
+h1 {
+    font-family: 'Russo One', sans-serif;
+    color: #007bff;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+p.lead {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+p.text-secondary {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+</style>
+<div class="container my-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-5">
+            <h1 class="display-4 mb-4 text-primary fw-bold">About This Company</h1>
+            <p class="lead text-muted">
+                Thank you for checking out our page! We are dedicated to delivering excellence and innovation in every project.
+            </p>
+            <p class="text-secondary">
+                Our company values integrity, creativity, and a strong commitment to providing outstanding solutions to our clients.
+                We thrive on challenges and strive to exceed expectations, bringing your ideas to life with cutting-edge technology
+                and strategic insights.
+            </p>
+
+            <div class="mt-4">
+                <a href="https://ibeawuchicn.vercel.app/projects.html" class="btn btn-primary btn-lg me-2">View Our Work</a>
+                <a href="https://ibeawuchicn.vercel.app/" class="btn btn-outline-secondary btn-lg">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

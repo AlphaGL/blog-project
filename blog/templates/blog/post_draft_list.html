@@ -1,0 +1,105 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    /* General Body Style */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    padding-top: 60px;
+}
+
+/* Post Container */
+.post {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Post Title */
+.post h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #007bff;
+    text-transform: capitalize;
+}
+
+.post h1 a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.post h1 a:hover {
+    color: #0056b3;
+}
+
+/* Post Excerpt */
+.post p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* Post Date */
+.date {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+/* Hover Effects */
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .post {
+        padding: 15px;
+    }
+    
+    .post h1 {
+        font-size: 1.5rem;
+    }
+    
+    .post p {
+        font-size: 0.9rem;
+    }
+}
+
+</style>
+{% for post in post_list %}
+    <div class="post">
+        <p class="date">Created: {{ post.created_date|date:'d-m-y' }}</p>
+        <h1>
+            <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+            <p>{{ post.text|truncatechars:200 }}</p>
+        </h1>
+    </div>
+{% endfor %}
+{% endblock %}
