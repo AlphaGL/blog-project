@@ -133,8 +133,8 @@ p.no-comments {
 <p class="postcontent">{{ post.text|safe|linebreaksbr }}</p>
 
 {% if user.is_authenticated %}
-<a class="btn btn-primary" href="{% url 'post_update' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-<a class="btn btn-primary" href="{% url 'post_delete' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+<a class="btn btn-primary" href="{% url 'post_update' pk=post.pk %}">Update</a>
+<a class="btn btn-primary" href="{% url 'post_delete' pk=post.pk %}">Delete</a>
 {% endif %}
 
 <hr />
@@ -145,8 +145,8 @@ p.no-comments {
     {% if user.is_authenticated or comment.approved_comment %}
       <p>{{ comment.created_date }}</p>
       {% if not comment.approved_comment %}
-        <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-        <a class="btn btn-primary" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+        <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}">Remove</a>
+        <a class="btn btn-primary" href="{% url 'comment_approve' pk=comment.pk %}">Approve</a>
       {% endif %}
       <p>{{ comment.text|safe|linebreaksbr }}</p>
       <p>Posted By: {{ comment.author }}</p>
